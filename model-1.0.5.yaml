@@ -674,7 +674,21 @@ components:
                 identifier:
                   type: string
                   description: An unambiguous ID given to the model or data. This can also be created automatically by a software tool.
-                # TODO: creators and authors
+                author:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: Person(s) who generated the model code or generated the data set originally
+                correspondingCreator:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CorrespondingCreator'
+                  description: The responsible person(s) that created this FSKX file including all metadata
+                otherCreators:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: The person(s) that contributed to the creation of this FSKX file including all metadata
                 creationDate:
                   type: string
                   format: date
@@ -827,8 +841,21 @@ components:
                 identifier:
                   type: string
                   description: An unambiguous ID given to the data
-                # TODO: author
-                # TODO: corresponding author
+                author:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: Person(s) who generated generated the data set originally
+                correspondingCreator:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CorrespondingCreator'
+                  description: The responsible person(s) that created this FSKX file including all metadata
+                otherCreators:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: The person(s) that contributed to the creation of this FSKX file including all metadata
                 creationDate:
                   type: string
                   format: date
@@ -1105,7 +1132,21 @@ components:
                 source:
                   type: string
                   description: A source from which the model/data is derived
-                # authors, corresponding author
+                author:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: Person(s) who generated the model code or generated the data set originally
+                correspondingCreator:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CorrespondingCreator'
+                  description: The responsible person(s) that created this FSKX file including all metadata
+                otherCreators:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: The person(s) that contributed to the creation of this FSKX file including all metadata
                 creationDate:
                   type: string
                   format: date
@@ -1295,7 +1336,21 @@ components:
                 identifier:
                   type: string
                   description: An unambiguous ID given to the model
-                # TODO: author, creator, ...
+                author:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: Person(s) who generated the model code or generated the data set originally
+                correspondingCreator:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CorrespondingCreator'
+                  description: The responsible person(s) that created this FSKX file including all metadata
+                otherCreators:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: The person(s) that contributed to the creation of this FSKX file including all metadata
                 creationDate:
                   type: string
                   format: date
@@ -1433,7 +1488,21 @@ components:
                 identifier:
                   type: string
                   description: An unambiguous ID given to the model
-                # TODO: author, creator, ...
+                author:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: Person(s) who generated the model code or generated the data set originally
+                correspondingCreator:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CorrespondingCreator'
+                  description: The responsible person(s) that created this FSKX file including all metadata
+                otherCreators:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: The person(s) that contributed to the creation of this FSKX file including all metadata
                 creationDate:
                   type: string
                   format: date
@@ -1586,7 +1655,21 @@ components:
                 identifier:
                   type: string
                   description: An unambiguous ID given to the model
-                # TODO: author, creator, ...
+                author:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: Person(s) who generated the model code or generated the data set originally
+                correspondingCreator:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CorrespondingCreator'
+                  description: The responsible person(s) that created this FSKX file including all metadata
+                otherCreators:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: The person(s) that contributed to the creation of this FSKX file including all metadata
                 creationDate:
                   type: string
                   format: date
@@ -1739,7 +1822,21 @@ components:
                 identifier:
                   type: string
                   description: An unambiguous ID given to the model
-                # TODO: author, creator, ...
+                author:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: Person(s) who generated the model code or generated the data set originally
+                correspondingCreator:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CorrespondingCreator'
+                  description: The responsible person(s) that created this FSKX file including all metadata
+                otherCreators:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: The person(s) that contributed to the creation of this FSKX file including all metadata
                 creationDate:
                   type: string
                   format: date
