@@ -1966,7 +1966,174 @@ components:
                   items:
                     $ref: '#/components/schemas/Simulation'
 
-    # TODO: Process model
+    ProcessModel:
+      allOf:
+        - $ref: '#/components/schemas/ProcessModel'
+        - type: object
+          properties:
+            generalInformation:
+              type: object
+              required:
+                - name
+                - identifier
+                - rights
+                - reference
+                - languageWrittenIn
+                - description
+              properties:
+                name:
+                  type: string
+                  description: A name given to the model
+                source:
+                  type: string
+                  description: A related resource from which the model/data is derived
+                identifier:
+                  type: string
+                  description: An unambiguous ID given to the model
+                author:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: Person(s) who generated the model code or generated the data set originally
+                correspondingCreator:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CorrespondingCreator'
+                  description: The responsible person(s) that created this FSKX file including all metadata
+                otherCreators:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: The person(s) that contributed to the creation of this FSKX file including all metadata
+                creationDate:
+                  type: string
+                  format: date
+                  description: Temporal information on the model creation date
+                modificationDate:
+                  type: array
+                  items:
+                    type: string
+                    format: date
+                    description: Temporal information on the last modification of the model
+                rights:
+                  type: string
+                  description: Rights granted for usage, distribution and modification of this FSK file
+                availability:
+                  type: string
+                  description: Availability of model
+                url:
+                  type: string
+                  description: Web address referencing the resource location
+                format:
+                  type: string
+                  description: Form of model (file extension)
+                reference:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Reference'
+                  # TODO: description
+                language:
+                  type: array
+                  items:
+                    type: string
+                  description: Languages of the resources like reports (reference publications) as well as data sources (data bases) and data (input and/or output of the model)
+                software:
+                  type: string
+                  # TODO: description
+                  description: The program or software language in which the model has been implemented
+                languageWrittenIn:
+                  type: array
+                  items:
+                    type: string
+                  description: Software language used to write the model, e.g. R or Matlab
+                modelCategory:
+                  $ref: '#/components/schemas/ModelCategory'
+                  # TODO: description
+                status:
+                  type: string
+                  description: The curation status of the model as defined by the platform where the model is made available
+                objective:
+                  type: string
+                  description: Objective of the model
+                description:
+                  type: string
+                  description: General description of the model
+                version:
+                  type: string
+            scope:
+              type: object
+              properties:
+                product:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Product'
+                hazard:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Hazard'
+                generalComment:
+                  type: string
+                  description: General comments on the scope of the model
+                time:
+                  type: string
+                  description: Temporal information on which the model applies / An interval of time that is named or defined by its start and end dates (period of study)
+                region:
+                  type: array
+                  items:
+                    type: string
+                  description: Spatial information (area) on which the model applies
+                country:
+                  type: array
+                  items:
+                    type: string
+                  description: Country on which the model applies
+            dataBackground:
+              type: object
+              properties:
+                study:
+                  $ref: '#/components/schemas/Study'
+                studySample:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/StudySample'
+                laboratory:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Laboratory'
+            modelMath:
+              type: object
+              properties:
+                parameter:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Parameter'
+                assumption:
+                  type: array
+                  items:
+                    type: string
+                qualityMeasures:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/QualityMeasures'
+                modelEquation:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ModelEquation'
+                fittingProcedure:
+                  type: string
+                  description: Procedure used to fit the data to the model equation
+                exposure:
+                  $ref: '#/components/schemas/Exposure'
+                events:
+                  type: array
+                  items:
+                    type: string
+                  description: Definition of the time-dependent parameter changes.
+                simulation:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Simulation'
+
     # TODO: Consumption model
     # TODO: Health model
     # TODO: Risk model
