@@ -643,6 +643,23 @@ components:
         description:
           type: string
 
+    TransmissionRoute:
+      properties:
+        steps:
+          type: array
+          items:
+            type: string
+          description: Transmission routes are defined as physical vectors that may transport the pathogen from the reservoir to humans
+        attributionPoints:
+          type: array
+          items:
+            type: string
+          description: Point in the food chain where human illness attribution can take place, including farm, production, distribution and consumption
+        travelHistory:
+          type: string
+        travelTimeframe:
+          type: string
+
     Model:
       type: object
       required:
@@ -2826,6 +2843,198 @@ components:
                 items:
                   $ref: '#/components/schemas/Simulation' 
     
-    # TODO; Source att-micro
+    SourceAttributionMicro:
+      allOf:
+        - $ref: '#/components/schemas/Model'
+        - type: object
+          properties:
+            generalInformation:
+              type: object
+              required:
+               - name
+               - identifier
+               - creationDate
+               - rights
+               - reference
+               - languageWrittenIn
+               - description
+              properties:
+                name:
+                  type: string
+                  description: A name given to the model or data
+                source:
+                  type: string
+                  description: A related resource from which the described resource is derived
+                identifier:
+                  type: string
+                  description: An unambiguous ID given to the model or data (e.g. URI)
+                author:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: Person(s) who generated the model code or generated the data set originally
+                correspondingCreator:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CorrespondingCreator'
+                  description: The responsible person(s) that created this FSKX file including all metadata
+                otherCreators:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AuthorCreator'
+                  description: The person(s) that contributed to the creation of this FSKX file including all metadata
+                creationDate:
+                  type: string
+                  format: date
+                  description: Temporal information on the model creation date
+                modificationDate:
+                  type: array
+                  items:
+                    type: string
+                    format: date
+                    description: Temporal information on the last modification of the model
+                rights:
+                  type: string
+                  description: Information on rights held in an over the resource
+                availability:
+                  type: string
+                  description: Availability of data or model
+                url:
+                  type: string
+                  description: Web address referencing the reosurce location (data for example)
+                format:
+                  type: string
+                  description: Form of model or data (file extension)
+                reference:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Reference'
+                language:
+                  type: string
+                  description: A language of the resource (some data or reports can be available in French language for example)
+                software:
+                  type: string
+                  description: The program in which the model has been implemented
+                languageWrittenIn:
+                  type: array
+                  items:
+                    type: string
+                    description: Software language used to write the model, e.g. R or Matlab
+                modelCategory:
+                  type: object
+                  properties:
+                    modelClass:
+                      type: string
+                      description: Type of model according to RAKIP classification.
+                    modelSubclass:
+                      type: array
+                      items:
+                        type: string
+                        description: Sub-cassification of the model given the Model Class.
+                    modelClassComment:
+                      type: string
+                      description: Comment about the model class.
+                    subtypingMethod:
+                      type: array
+                      items:
+                        type: string
+                        description: Microbial subtyping methods are numerous methods used to distinguish bacterial and viral isolates from one another. Microbial fingerprinting and microbial source tracking are two other terms that essentially describe the same methods.
+                  required:
+                  - modelClass
+                status:
+                  type: string
+                  description: This is a deprecated field, i.e. this metadata field is not supported in the metadata schema version 1.0.5 or higher
+                objective:
+                  type: string
+                  description: Objective of the model or data
+                description:
+                  type: string
+                  description: General description of the study, data or model
+                version:
+                  type: string
+            scope:
+              type: object
+              properties:
+                source:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Product'
+                hazard:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Hazard'
+                populationGroup:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PopulationGroup'
+                generalComment:
+                  type: string
+                  description: General comments on the scope of the model
+                transmissionRoute:
+                  $ref: '#/components/schemas/TransmissionRoute'
+                time:
+                  type: string
+                  description: Temporal information on which the model applies / An interval of time that is named or defined by its start and end dates (period of study)
+                region:
+                  type: array
+                  items:
+                    type: string
+                  description: Spatial information (area) on which the model applies
+                country:
+                  type: array
+                  items:
+                    type: string
+                  description: Country on which the model applies
+            dataBackground:
+              type: object
+              properties:
+                study:
+                  $ref: '#/components/schemas/Study'
+                studySample:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/StudySample'
+                dietaryAssessmentMethod:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DietaryAssessmentMethod'
+                laboratory:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Laboratory'
+            modelMath:
+              type: object
+              properties:
+                parameter:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Parameter'
+                assumption:
+                  type: array
+                  items:
+                    type: string
+                qualityMeasures:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/QualityMeasures'
+                modelEquation:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ModelEquation'
+                fittingProcedure:
+                  type: string
+                  description: Procedure used to fit the data to the model equation
+                exposure:
+                  $ref: '#/components/schemas/Exposure'
+                events:
+                  type: array
+                  items:
+                    type: string
+                  description: Definition of the time-dependent parameter changes.
+                simulation:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Simulation' 
+
     # TODO: Source att-Compar
     # TODO: Bayesian model
